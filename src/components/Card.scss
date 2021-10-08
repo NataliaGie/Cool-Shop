@@ -1,0 +1,23 @@
+.card {
+    height: 700px;
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.card-image {
+    height: 500px;
+    width: 380px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    margin: 10px 0 0;
+}
+
+.card-price {
+    font-size: 1rem;
+    margin: 10px;
+}

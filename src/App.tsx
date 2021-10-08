@@ -3,11 +3,11 @@ import {
   Switch,
   Route
 } from 'react-router-dom';
-import './App.scss';
 import NavBar from './components//NavBar';
 import Home from './pages/Home';
 import MyCart from './pages/MyCart';
 import Shop from './pages/Shop';
+import './App.scss';
 
 function App() {
   return (
