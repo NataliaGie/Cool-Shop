@@ -1,0 +1,25 @@
+$my-grey-color: rgb(197, 196, 196);
+
+section {
+    position: relative;
+    margin: 0 auto;
+}
+
+.cart-wrapper {
+    margin: 100px auto 0;
+    width: 70vw;
+    height: max-content;
+    border: 1px solid $my-grey-color;
+    border-radius: 5px;
+}
+
+p {
+    padding: 15px 30px;
+}
+
+.section-title {
+    font-size: 1.2rem;
+    margin: auto;
+    border-bottom: 1px solid $my-grey-color;
+    text-transform: uppercase;
+}

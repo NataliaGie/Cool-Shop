@@ -1,0 +1,16 @@
+.cart-item-wrapper {
+    margin: 20px auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    font-size: 1.25rem;
+}
+
+img {
+    height: 120px;
+}
+
+.cart-item-title {
+    width: 140px;
+}

@@ -1,7 +1,12 @@
+.shop-wrapper {
+    margin: 50px auto 0;
+}
+
 .cards-grid {
     margin: 0 auto;
-    width: 70vw;
+    width: 85vw;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
+    grid-gap: 20px;
 }

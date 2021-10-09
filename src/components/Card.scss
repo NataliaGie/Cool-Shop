@@ -12,6 +12,12 @@
     object-fit: cover;
 }
 
+.card-desc {
+    width: 370px;
+    display: flex;
+    flex-direction: column;
+}
+
 .card-title {
     font-size: 1.25rem;
     margin: 10px 0 0;
@@ -20,4 +26,12 @@
 .card-price {
     font-size: 1rem;
     margin: 10px;
+}
+
+.add-icon {
+    height: 48px;
+    width: 48px;
+    align-self: flex-end;
+    margin-top: -60px;
+    cursor: pointer;
 }

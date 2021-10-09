@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import img1 from '../images/item-1.jpg';
 import img2 from '../images/item-2.jpg';
 import img3 from '../images/item-3.jpg';
@@ -13,6 +13,14 @@ interface ShopState {
     items: any[],
     addedToCart: any[],
     total: number
+}
+
+interface ShopItem {
+    name: string;
+    id: number,
+    title: string,
+    price: number,
+    src: string
 }
 
 const initialState: ShopState = {
@@ -36,12 +44,21 @@ export const shopSlice = createSlice({
     name: 'shop',
     initialState,
     reducers: {
-        shop: (state: any) => { 
-            return state.items;
+        addToCart: (state, action: PayloadAction<ShopItem>) => {
+            let clickedToAddItem = state.items.find( item => item.id === action.payload.id);
+            if (clickedToAddItem) {
+                return {
+                    ...state,
+                    addedToCart: [...state.addedToCart, action.payload],
+                    total: state.total + action.payload.price
+                }
+            }
         }
     }
 });
 
-export const shopActions = shopSlice.actions;
+
+export const { addToCart } = shopSlice.actions;
 
 export default shopSlice.reducer;
+
