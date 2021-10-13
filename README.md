@@ -1,3 +1,16 @@
+# Cool Shop project
+
+This is a project I'm actually working on. Cool Shop is a Single Page Application. There you can select products, add to your cart or delete. 
+
+## Technology
+
+- React + Typescript
+- Redux Toolkit
+- CSS / SASS
+- React Router
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
 
 ## Available Scripts
