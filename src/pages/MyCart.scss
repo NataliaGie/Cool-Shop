@@ -1,25 +1,46 @@
 $my-grey-color: rgb(197, 196, 196);
 
-section {
+@mixin paragraph() {
+    padding: 15px 20px;
+}
+
+.cart-section {
     position: relative;
     margin: 0 auto;
+    overflow: auto;
 }
 
 .cart-wrapper {
-    margin: 100px auto 0;
+    margin: 50px auto 50px;
     width: 70vw;
     height: max-content;
     border: 1px solid $my-grey-color;
     border-radius: 5px;
 }
 
-p {
-    padding: 15px 30px;
-}
-
 .section-title {
+    @include paragraph;
     font-size: 1.2rem;
     margin: auto;
     border-bottom: 1px solid $my-grey-color;
     text-transform: uppercase;
+}
+
+.empty-container {
+    @include paragraph;
+}
+
+.total-price {
+    margin: 0 16% 80px 16%;
+    width: 200px;
+    font-size: 1.15rem;
+    font-weight: bold;
+
+    &::before {
+        display: inline-block;
+        content: "";
+        border-top: 2px solid black;
+        width: 300px;
+        margin: 20px -5px;
+    }
 }

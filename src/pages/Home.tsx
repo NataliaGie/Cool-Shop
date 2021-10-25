@@ -11,11 +11,11 @@ const Home = () => {
     }
 
     return (
-    <section>
+    <section className='home-section'>
         <div className='leftHalf'>
             <div className='content-wrapper'>
             <h1>See new collection</h1>
-            <button onClick={() => goToNextPath('/shop')}>See now</button>
+            <button className='home-button' onClick={() => goToNextPath('/shop')}>See now</button>
             </div>
         </div>
         <div className='rightHalf'>

@@ -9,56 +9,89 @@ import img7 from '../images/item-7.jpg';
 import img8 from '../images/item-8.jpg';
 import img9 from '../images/item-9.jpg';
 
-interface ShopState {
-    items: any[],
-    addedToCart: any[],
-    total: number
-}
-
 interface ShopItem {
-    name: string;
+    count: number,
     id: number,
     title: string,
     price: number,
     src: string
 }
 
+interface ShopState {
+    items: ShopItem[],
+    addedToCart: any[],
+    totalPrice: number[]
+}
+
 const initialState: ShopState = {
     items: [
-        {name: '1', id: 1, title: 'Burgundy set', price: '$40', src: img1},
-        {name: '2', id: 2, title: 'Jacket', price: '$35', src: img2},
-        {name: '3', id: 3, title: 'Shirt', price: '$20', src: img3},
-        {name: '4', id: 4, title: 'Sweater', price: '$25', src: img4},
-        {name: '5', id: 5, title: 'Coat', price: '$50', src: img5},
-        {name: '6', id: 6, title: 'Black set', price: '$35', src: img6},
-        {name: '7', id: 7, title: 'Trousers', price: '$30', src: img7},
-        {name: '8', id: 8, title: 'Skirt', price: '$30', src: img8},
-        {name: '9', id: 9, title: 'Dress', price: '$40', src: img9}
+        {id: 1, count: 0, title: 'Burgundy set', price: 40, src: img1},
+        {id: 2, count: 0, title: 'Jacket', price: 35, src: img2},
+        {id: 3, count: 0, title: 'Shirt', price: 20, src: img3},
+        {id: 4, count: 0, title: 'Sweater', price: 25, src: img4},
+        {id: 5, count: 0, title: 'Coat', price: 50, src: img5},
+        {id: 6, count: 0, title: 'Black set', price: 35, src: img6},
+        {id: 7, count: 0, title: 'Trousers', price: 30, src: img7},
+        {id: 8, count: 0, title: 'Skirt', price: 30, src: img8},
+        {id: 9, count: 0, title: 'Dress', price: 40, src: img9}
     ],
     addedToCart: [],
-    total: 0
+    totalPrice: [0]
 }
 
 
-export const shopSlice = createSlice({
+export const shopSlice: any = createSlice({
     name: 'shop',
     initialState,
     reducers: {
-        addToCart: (state, action: PayloadAction<ShopItem>) => {
-            let clickedToAddItem = state.items.find( item => item.id === action.payload.id);
-            if (clickedToAddItem) {
-                return {
-                    ...state,
-                    addedToCart: [...state.addedToCart, action.payload],
-                    total: state.total + action.payload.price
+        addToCart: (state, action: any) => {
+          let cart = {
+              id: action.payload.id,
+              count: 1,
+              title: action.payload.title,
+              price: action.payload.price,
+              src: action.payload.src
+          }
+
+          let existedItem = state.addedToCart.find(item => action.payload.id === item.id);
+
+          if (existedItem) {
+            state.addedToCart.map((item, key) => {
+                if (item.id == action.payload.id) {
+                    state.addedToCart[key].count += 1;
+                    return state.totalPrice + state.addedToCart[key].price;
                 }
+            })
+          } else {
+            state.addedToCart.push(cart);
+          }
+        },
+
+        removeItemFromCart: (state, action: PayloadAction<ShopItem>) => {
+            let updatedCart = state.addedToCart.filter(item => action.payload.id !== item.id)
+
+            return {
+                ...state,
+                addedToCart: updatedCart,
+                total: state.totalPrice
+            }
+        },
+
+        incrementItem: (state, action: any) => {
+            state.addedToCart[action.payload].count += 1;
+        },
+
+        decrementItem: (state, action: any) => {
+            let quantity = state.addedToCart[action.payload].count;
+            if (quantity > 1) {
+                state.addedToCart[action.payload].count -= 1;
             }
         }
     }
 });
 
 
-export const { addToCart } = shopSlice.actions;
+export const { addToCart, removeItemFromCart, incrementItem, decrementItem } = shopSlice.actions;
 
 export default shopSlice.reducer;
 

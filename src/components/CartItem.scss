@@ -14,3 +14,36 @@ img {
 .cart-item-title {
     width: 140px;
 }
+
+.delete-icon {
+    cursor: pointer;
+    color: rgb(190, 30, 30);
+    height: 25px;
+    width: 25px;
+}
+
+.counter-container {
+    width: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.counter-button {
+    width: 45px;
+    height: 30px;
+    background-color: transparent;
+    border: 2px solid grey;
+    font-weight: bold;
+    cursor: pointer;
+
+    &:hover {
+        background-color: grey;
+        color: white;
+    }
+}
+
+.cart-item-price {
+    width: 80px;
+}

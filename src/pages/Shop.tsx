@@ -15,13 +15,13 @@ const Shop = () => {
     return (
         <div className='shop-wrapper'>
             <div className='cards-grid'>
-                {shopItems.map(item => {
+                {shopItems.map((item: { src: string; title: string; price: any; id: number; }) => {
                     return (
                     <Card
                         click={() => {onCardClickHandler(item)}}
                         src={item.src}
                         title={item.title}
-                        price={item.price}
+                        price={`$${item.price}`}
                         id={item.id}
                         key={item.id} />
                     )

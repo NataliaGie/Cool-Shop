@@ -1,5 +1,5 @@
 .card {
-    height: 700px;
+    height: 650px;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -34,4 +34,9 @@
     align-self: flex-end;
     margin-top: -60px;
     cursor: pointer;
+    transition: 0.2s all;
+
+    &:active {
+        transform: scale(0.9);
+    }
 }
