@@ -20,7 +20,7 @@ interface ShopItem {
 interface ShopState {
     items: ShopItem[],
     addedToCart: any[],
-    totalPrice: number[]
+    itemsInCart: number
 }
 
 const initialState: ShopState = {
@@ -36,7 +36,7 @@ const initialState: ShopState = {
         {id: 9, count: 0, title: 'Dress', price: 40, src: img9}
     ],
     addedToCart: [],
-    totalPrice: [0]
+    itemsInCart: 0
 }
 
 
@@ -59,11 +59,12 @@ export const shopSlice: any = createSlice({
             state.addedToCart.map((item, key) => {
                 if (item.id == action.payload.id) {
                     state.addedToCart[key].count += 1;
-                    return state.totalPrice + state.addedToCart[key].price;
+                    state.itemsInCart++;
                 }
             })
           } else {
             state.addedToCart.push(cart);
+            state.itemsInCart++;
           }
         },
 
@@ -72,8 +73,7 @@ export const shopSlice: any = createSlice({
 
             return {
                 ...state,
-                addedToCart: updatedCart,
-                total: state.totalPrice
+                addedToCart: updatedCart
             }
         },
 

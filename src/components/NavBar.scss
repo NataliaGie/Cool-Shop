@@ -21,7 +21,7 @@
 }
 
 .logo {
-    margin-right: 75%;
+    margin-right: 68%;
     font-size: 1.8rem;
     font-family: 'Akronim', cursive;
 }
@@ -29,3 +29,25 @@
 .on-hover:hover {
     border-bottom: 2px solid black;
 }
+
+.cart-icon {
+    width: 28px;
+    height: 28px;
+    color: black;
+    margin-left: -15px;
+    margin-right: 40px;
+}
+
+.nav-counter-circle {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: black;
+    margin-left: -55px;
+    color: white;
+    text-align: center;
+    font-size: 0.85rem;
+    z-index: 6;
+}
+
